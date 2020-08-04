@@ -1,0 +1,18 @@
+{
+	"name": "maki",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "parcel build ./wwwroot/js/app.ts --out-dir wwwroot/dist --public-url ./ --no-minify",
+		"build": "parcel build ./wwwroot/js/app.ts --out-dir wwwroot/dist --public-url ./"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"parcel-bundler": "^1.12.3",
+		"sass": "^1.22.1",
+		"typescript": "^3.9.7"
+	}
+}

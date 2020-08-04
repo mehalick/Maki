@@ -1,0 +1,36 @@
+﻿html, body, app {
+	height: 100%;
+}
+
+body {
+	background-color: #e6e7ee;
+}
+
+app {
+	display: grid;
+	grid-template-rows: 50px 1fr 50px;
+
+	header {
+		padding: 15px;
+		background: #192129;
+		color: white;
+	}
+
+	main {
+		padding: 15px;
+		overflow-y: scroll;
+	}
+
+	nav {
+		padding: 15px;
+		background: #293947;
+		color: white;
+
+		a {
+			&, &:hover, &:focus {
+				color: white;
+				text-decoration: none;
+			}
+		}
+	}
+}

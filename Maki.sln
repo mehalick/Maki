@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30310.162
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maki.Server", "src\Maki.Server\Maki.Server.csproj", "{AA25C823-ACB4-4F9F-9B40-6B9240FF40E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maki.Client", "src\Maki.Client\Maki.Client.csproj", "{F1E3F70F-DE2A-4AAB-88ED-3CB4A7A2DE8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maki.Shared", "src\Maki.Shared\Maki.Shared.csproj", "{BD6FFEE9-1DFB-489E-B3A0-4BFBB311ECCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4DD3AB2-4607-411B-8D3F-696DE1285709}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA25C823-ACB4-4F9F-9B40-6B9240FF40E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA25C823-ACB4-4F9F-9B40-6B9240FF40E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA25C823-ACB4-4F9F-9B40-6B9240FF40E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA25C823-ACB4-4F9F-9B40-6B9240FF40E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E3F70F-DE2A-4AAB-88ED-3CB4A7A2DE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E3F70F-DE2A-4AAB-88ED-3CB4A7A2DE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E3F70F-DE2A-4AAB-88ED-3CB4A7A2DE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E3F70F-DE2A-4AAB-88ED-3CB4A7A2DE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD6FFEE9-1DFB-489E-B3A0-4BFBB311ECCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD6FFEE9-1DFB-489E-B3A0-4BFBB311ECCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD6FFEE9-1DFB-489E-B3A0-4BFBB311ECCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD6FFEE9-1DFB-489E-B3A0-4BFBB311ECCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C258FEF-E9F0-45DF-9938-618C3006E591}
+	EndGlobalSection
+EndGlobal
