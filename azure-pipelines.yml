@@ -22,7 +22,7 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '5.0.x'
-	includePreviewVersions: true
+    includePreviewVersions: true
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore Solution'
