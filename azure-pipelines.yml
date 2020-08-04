@@ -15,7 +15,6 @@ variables:
   BuildSolution: '**/Maki.sln'
   BuildPlatform: 'Any CPU'
   BuildConfiguration: 'Release'
-  BuildRuntime: 'win-x86'
 
 steps:
 - task: UseDotNet@2
@@ -30,7 +29,6 @@ steps:
   inputs:
     command: 'restore'
     solution: '$(BuildSolution)'
-    runtime: '$(BuildRuntime)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build Solution'
@@ -38,7 +36,6 @@ steps:
     command: 'build'
     solution: '$(BuildSolution)'
     configuration: '$(BuildConfiguration)'
-    runtime: '$(BuildRuntime)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish App'
@@ -46,7 +43,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: '**/Maki.Server.csproj'
-    arguments: '--configuration $(BuildConfiguration) --runtime $(BuildRuntime) --self-contained true --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(BuildConfiguration) --self-contained true --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
