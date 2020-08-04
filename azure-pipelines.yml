@@ -12,9 +12,9 @@ pool:
 name: $(Date:yyyyMMdd)$(Rev:.rr)
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  BuildSolution: '**/Maki.sln'
+  BuildPlatform: 'Any CPU'
+  BuildConfiguration: 'Release'
 
 steps:
 - task: UseDotNet@2
@@ -28,20 +28,21 @@ steps:
   displayName: 'Restore Solution'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    solution: '$(BuildSolution)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build Solution'
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
+    solution: '$(BuildSolution)'
+    configuration: '$(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish App'
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '**/Maki.App.csproj'
+    projects: '**/Maki.Server.csproj'
     arguments: '--configuration $(BuildConfiguration) --runtime win-x86 --self-contained true --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 
