@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,7 +20,17 @@ namespace Maki.Server
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddRazorPages(options => options.Conventions.AddPageRoute("/_Host", "{*url}"));
+			services.AddHttpContextAccessor();
+
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(options =>
+				{
+					options.LoginPath = "/auth/login";
+					options.LogoutPath = "/auth/logout";
+					options.AccessDeniedPath = "/auth/forbidden";
+				});
+
+			services.AddRazorPages(options => options.Conventions.AuthorizePage("/_Host"));
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,6 +51,15 @@ namespace Maki.Server
 			app.UseStaticFiles();
 
 			app.UseRouting();
+
+			app.UseCookiePolicy(new CookiePolicyOptions
+			{
+				MinimumSameSitePolicy = SameSiteMode.Strict,
+				HttpOnly = HttpOnlyPolicy.Always,
+				Secure = CookieSecurePolicy.Always
+			});
+			app.UseAuthentication();
+			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{
