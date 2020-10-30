@@ -1,24 +1,30 @@
-﻿@page "/"
+﻿@page
+@model Maki.Server.Pages.Auth.LogInModel
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<base href="/" />
-	<title>Maki</title>
+	<title>Log In | Maki</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha256-IdfIcUlaMBNtk4Hjt0Y6WMMZyMU0P9PN/pH+DFzKxbI=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="/dist/app.css" />
 	<link rel="manifest" href="/manifest.json" />
 	<link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
 	<link rel="dns-prefetch" href="https://maki.azureedge.net/">
 </head>
-<body>
-	<app>Loading...</app>
-	<script src="/_framework/blazor.webassembly.js"></script>
-	<script src="https://kit.fontawesome.com/eb386c71b5.js" crossorigin="anonymous"></script>
-	<script src="/dist/app.js"></script>
-	<script>
-		navigator.serviceWorker.register('/service-worker.js');
-	</script>
+<body class="mb-3">
+	@if (Model.ValidationResult != LogInAuth.ValidationResult.None)
+	{
+		<div class="alert alert-danger" role="alert">
+			@Model.ValidationResult
+		</div>
+	}
+	<form method="post">
+		<div class="mb-3">
+			<input type="email" name="email" class="form-control" required placeholder="Email" value="mehalick@gmail.com" />
+		</div>
+		<button type="submit" class="btn btn-primary">Send Link</button>
+	</form>
 </body>
 </html>
+
